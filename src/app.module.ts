@@ -1,12 +1,8 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { CiudadModule } from './ciudad/ciudad.module';
 import { SupermercadoModule } from './supermercado/supermercado.module';
 import { CiudadSupermercadoModule } from './ciudad-supermercado/ciudad-supermercado.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { CiudadEntity } from './ciudad/ciudad.entity/ciudad.entity';
-import { SupermercadoEntity } from './supermercado/supermercado.entity/supermercado.entity';
 
 @Module({
   imports: [
@@ -19,18 +15,11 @@ import { SupermercadoEntity } from './supermercado/supermercado.entity/supermerc
       port: 5432,
       username: 'postgres',
       password: 'postgres',
-      database: 'supermarkets',
-      entities: [
-        CiudadEntity,
-        SupermercadoEntity,
-      ],
-      dropSchema: true,
+      database: 'supermarkets_db',
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
-      keepConnectionAlive: true
     }),
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
 
