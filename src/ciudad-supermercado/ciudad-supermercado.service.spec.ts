@@ -84,7 +84,7 @@ describe('CiudadSupermercadoService', () => {
 
     await expect(() => service.addSupermarketCity(newCity.id, '0')).rejects.toHaveProperty(
       'message',
-      'Supermarket not found'
+      'Invalid UUID format'
     );
   });
 
@@ -103,7 +103,7 @@ describe('CiudadSupermercadoService', () => {
   it('findSupermarketFromCity should throw an exception for an invalid supermarket', async () => {
     await expect(() => service.findSupermarketFromCity(ciudad.id, '0')).rejects.toHaveProperty(
       'message',
-      'Supermarket not found in the city'
+      'Invalid UUID format'
     );
   });
 

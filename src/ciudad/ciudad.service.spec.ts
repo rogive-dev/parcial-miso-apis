@@ -53,7 +53,7 @@ describe('CiudadService', () => {
   });
 
   it('findOne should throw an exception for an invalid city', async () => {
-    await expect(service.findOne('0')).rejects.toHaveProperty('message', 'The city with the given id was not found');
+    await expect(service.findOne('0')).rejects.toHaveProperty('message', 'Invalid UUID format: 0');
   });
 
   it('create should return a new city', async () => {
