@@ -1,0 +1,816 @@
+{
+	"info": {
+		"_postman_id": "63116c0f-87b5-491d-801b-0e3cfa210ebf",
+		"name": "Ciudad",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37806916"
+	},
+	"item": [
+		{
+			"name": "Crear Ciudad",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Quito\",\r\n  \"country\": \"Ecuador\",\r\n  \"population\": 20000000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/cities",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear Ciudad",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Quito\",\r\n  \"country\": \"Ecuador\",\r\n  \"population\": 20000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "102"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"66-AZCnOchJ0liWcHDDM2OndX0tMLY\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:36:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Quito\",\n    \"country\": \"Ecuador\",\n    \"population\": 20000000,\n    \"id\": \"925c1555-6ff4-43c9-8cc3-221480b73aaa\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear una ciudad inválida",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"country\": \"Colombia\",\r\n  \"population\": 10000000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/cities",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una ciudad inválida",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"country\": \"Colombia\",\r\n  \"population\": 10000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "94"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5e-7A3uFkb0svXgSHUpItFPcTIgwLM\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:37:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Invalid country. Only Argentina, Ecuador, Paraguay are allowed.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todas las ciudades",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todas las ciudades",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "636"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"27c-dlr5OsL+s0U6WJF1nx2ws18N45c\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:37:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"bdfd12c5-b783-4cc3-9768-cce4958fa2a6\",\n        \"name\": \"La plata Updated\",\n        \"country\": \"Argentina\",\n        \"population\": 8000000,\n        \"supermercados\": []\n    },\n    {\n        \"id\": \"2c15c46e-d0e3-4979-8370-97aa5cb56b04\",\n        \"name\": \"Santafe\",\n        \"country\": \"Argentina\",\n        \"population\": 20000000,\n        \"supermercados\": []\n    },\n    {\n        \"id\": \"9f8a137a-5c60-493c-9562-3ffd45eab7db\",\n        \"name\": \"Quito\",\n        \"country\": \"Ecuador\",\n        \"population\": 20000000,\n        \"supermercados\": []\n    },\n    {\n        \"id\": \"6f0dcfb4-4e81-4034-a770-da5a0ccf5134\",\n        \"name\": \"Buenos aires\",\n        \"country\": \"Argentina\",\n        \"population\": 10000000,\n        \"supermercados\": []\n    },\n    {\n        \"id\": \"925c1555-6ff4-43c9-8cc3-221480b73aaa\",\n        \"name\": \"Quito\",\n        \"country\": \"Ecuador\",\n        \"population\": 20000000,\n        \"supermercados\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener una ciudad por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{cityID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{cityID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una ciudad por ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{cityID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{cityID}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "121"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"79-zM/o3M8HWotZxn49oPnX3BhBons\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:38:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"925c1555-6ff4-43c9-8cc3-221480b73aaa\",\n    \"name\": \"Quito\",\n    \"country\": \"Ecuador\",\n    \"population\": 20000000,\n    \"supermercados\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener una ciudad por ID que no existe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{noValidID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{noValidID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener una ciudad por ID que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{noValidID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{noValidID}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-/0V/k2+crzI7sGzpGdseMTk6hHQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:38:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The city with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar una ciudad",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"La pampa\",\r\n  \"country\": \"Argentina\",\r\n  \"population\": 8000000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/cities/bdfd12c5-b783-4cc3-9768-cce4958fa2a6",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"bdfd12c5-b783-4cc3-9768-cce4958fa2a6"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar una ciudad",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"La pampa\",\r\n  \"country\": \"Argentina\",\r\n  \"population\": 8000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/bdfd12c5-b783-4cc3-9768-cce4958fa2a6",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"bdfd12c5-b783-4cc3-9768-cce4958fa2a6"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "106"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6a-DmEBBiIPo2ZL6KpO8SbPagEw/CQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:38:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"bdfd12c5-b783-4cc3-9768-cce4958fa2a6\",\n    \"name\": \"La pampa\",\n    \"country\": \"Argentina\",\n    \"population\": 8000000\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar una ciudad por ID que no existe",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"La plata Updated\",\r\n  \"country\": \"Argentina\",\r\n  \"population\": 8000000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/cities/{{noValidID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{noValidID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar una ciudad por ID que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"La plata Updated\",\r\n  \"country\": \"Argentina\",\r\n  \"population\": 8000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/{{noValidID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{noValidID}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-/0V/k2+crzI7sGzpGdseMTk6hHQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:39:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The city with the given id was not found\"\n}"
+				},
+				{
+					"name": "Actualizar una ciudad por UUID no valido",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"La plata Updated\",\r\n  \"country\": \"Argentina\",\r\n  \"population\": 8000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/12323",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"12323"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-/0V/k2+crzI7sGzpGdseMTk6hHQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:39:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The city with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar una ciudad",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/6f0dcfb4-4e81-4034-a770-da5a0ccf5134",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"6f0dcfb4-4e81-4034-a770-da5a0ccf5134"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar una ciudad",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/6f0dcfb4-4e81-4034-a770-da5a0ccf5134",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"6f0dcfb4-4e81-4034-a770-da5a0ccf5134"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:40:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Eliminar una ciudad por ID que no existe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{noValidID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{noValidID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar una ciudad por ID que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{noValidID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{noValidID}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-/0V/k2+crzI7sGzpGdseMTk6hHQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:39:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The city with the given id was not found\"\n}"
+				},
+				{
+					"name": "Eliminar una ciudad por UUID no valido",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/12323434",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"12323434"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-/0V/k2+crzI7sGzpGdseMTk6hHQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:39:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The city with the given id was not found\"\n}"
+				}
+			]
+		}
+	]
+}

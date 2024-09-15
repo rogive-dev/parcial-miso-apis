@@ -1,0 +1,816 @@
+{
+	"info": {
+		"_postman_id": "cc724b65-eadb-4c8b-8abf-a57885514164",
+		"name": "Supermercado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37806916"
+	},
+	"item": [
+		{
+			"name": "Crear Supermercado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Supermercado Quito\",\r\n  \"longitude\": -78.4678,\r\n  \"latitude\": -0.1807,\r\n  \"website\": \"https://supermercadoquito.com\"\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/supermarkets",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear Supermercado",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Supermercado Santiago\",\r\n  \"longitude\": -70.6483,\r\n  \"latitude\": -33.4569,\r\n  \"website\": \"https://supermercadosantiago.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/supermarkets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "162"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a2-Bj0HPD2WzZy+vEhsFRojG4L1DdQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:24:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Supermercado Santiago\",\n    \"longitude\": -70.6483,\n    \"latitude\": -33.4569,\n    \"website\": \"https://supermercadosantiago.com\",\n    \"id\": \"c371d2b3-98d2-4ed9-a6ac-881ab04a8c6c\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear una supermercado inválido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Super\",\r\n  \"longitude\": 4.6767,\r\n  \"latitude\": -74.0421,\r\n  \"website\": \"https://super.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/supermarkets",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una supermercado inválido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Super\",\r\n  \"longitude\": 4.6767,\r\n  \"latitude\": -74.0421,\r\n  \"website\": \"https://super.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/supermarkets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "82"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"52-76Ihj2FNGcu6hd5Y+zV9kRZC+vY\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:25:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Supermarket name must be longer than 10 characters.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los supermercados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/supermarkets",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todos los supermercados",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/supermarkets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1029"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"405-OD4VlNw5X3ohlLU364F6WecAtJ0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:26:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"c51beac0-5c63-45a6-add0-ea0ae0724adf\",\n        \"name\": \"Supermercado Argentina\",\n        \"longitude\": 58.3816,\n        \"latitude\": -34.6037,\n        \"website\": \"https://supermercadoabc.com\",\n        \"ciudades\": []\n    },\n    {\n        \"id\": \"8aad110a-278a-424c-bfab-d40b8a297f2c\",\n        \"name\": \"Supermercado La Paz\",\n        \"longitude\": -68.1193,\n        \"latitude\": -16.5,\n        \"website\": \"https://supermercadolapaz.com\",\n        \"ciudades\": []\n    },\n    {\n        \"id\": \"c371d2b3-98d2-4ed9-a6ac-881ab04a8c6c\",\n        \"name\": \"Supermercado Santiago\",\n        \"longitude\": -70.6483,\n        \"latitude\": -33.4569,\n        \"website\": \"https://supermercadosantiago.com\",\n        \"ciudades\": []\n    },\n    {\n        \"id\": \"6a2dcc7b-ba8d-4e17-9de8-a450be97bd57\",\n        \"name\": \"Supermercado Lima\",\n        \"longitude\": -77.0282,\n        \"latitude\": -12.0464,\n        \"website\": \"https://supermercadolima.com\",\n        \"ciudades\": []\n    },\n    {\n        \"id\": \"bb701b24-8063-41f8-a28f-17221b63d513\",\n        \"name\": \"Supermercado Bogotá\",\n        \"longitude\": -74.0721,\n        \"latitude\": 4.711,\n        \"website\": \"https://supermercadobogota.com\",\n        \"ciudades\": []\n    },\n    {\n        \"id\": \"e9f6eb0c-95eb-4eab-a246-bcdc84ae03e5\",\n        \"name\": \"Supermercado Quito\",\n        \"longitude\": -78.4678,\n        \"latitude\": -0.1807,\n        \"website\": \"https://supermercadoquito.com\",\n        \"ciudades\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener un supermercado por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/supermarkets/{{supermarketID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{supermarketID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un supermercado por ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/supermarkets/{{supermarketID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{supermarketID}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "176"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b0-+9AOsqjvqo9h987+J5KqanNPLQs\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:31:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"c371d2b3-98d2-4ed9-a6ac-881ab04a8c6c\",\n    \"name\": \"Supermercado Santiago\",\n    \"longitude\": -70.6483,\n    \"latitude\": -33.4569,\n    \"website\": \"https://supermercadosantiago.com\",\n    \"ciudades\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un supermercado por ID que no existe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/supermarkets/{{noValidID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{noValidID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un supermercado por ID que no existe",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/supermarkets/{{noValidID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{noValidID}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-So3L6afIKwI/u66qTnUtURsV+x0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:31:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The supermarket with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un supermercado",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"name\": \"Supermercado Santiago Updated\",\r\n    \"longitude\": -70.6483,\r\n    \"latitude\": -33.4569,\r\n    \"website\": \"https://supermercadosantiago.com\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/supermarkets/{{supermarketID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{supermarketID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar un supermercado",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"name\": \"Supermercado Santiago Updated\",\r\n    \"longitude\": -70.6483,\r\n    \"latitude\": -33.4569,\r\n    \"website\": \"https://supermercadosantiago.com\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/supermarkets/{{supermarketID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{supermarketID}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "170"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"aa-6g/jl1mJ+DyRstFqKhYsW9rI8AA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:33:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"c371d2b3-98d2-4ed9-a6ac-881ab04a8c6c\",\n    \"name\": \"Supermercado Santiago Updated\",\n    \"longitude\": -70.6483,\n    \"latitude\": -33.4569,\n    \"website\": \"https://supermercadosantiago.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar un supermercado por ID que no existe",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"La plata Updated\",\r\n  \"country\": \"Argentina\",\r\n  \"population\": 8000000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/supermarkets/{{noValidID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{noValidID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar un supermercado por ID que no existe",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"La plata Updated\",\r\n  \"country\": \"Argentina\",\r\n  \"population\": 8000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/supermarkets/{{noValidID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{noValidID}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-So3L6afIKwI/u66qTnUtURsV+x0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:33:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The supermarket with the given id was not found\"\n}"
+				},
+				{
+					"name": "Actualizar un supermercado por UUID no valido",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"La plata Updated\",\r\n  \"country\": \"Argentina\",\r\n  \"population\": 8000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/supermarkets/123456",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets",
+								"123456"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-So3L6afIKwI/u66qTnUtURsV+x0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:33:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The supermarket with the given id was not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar un supermercado",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/supermarkets/8aad110a-278a-424c-bfab-d40b8a297f2c",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets",
+						"8aad110a-278a-424c-bfab-d40b8a297f2c"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un supermercado",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/supermarkets/8aad110a-278a-424c-bfab-d40b8a297f2c",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets",
+								"8aad110a-278a-424c-bfab-d40b8a297f2c"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:35:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Eliminar un supermercado con un ID que no existe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/supermarkets/{{noValidID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"supermarkets",
+						"{{noValidID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un supermercado con un ID que no existe",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/supermarkets/{{noValidID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets",
+								"{{noValidID}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-So3L6afIKwI/u66qTnUtURsV+x0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:35:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The supermarket with the given id was not found\"\n}"
+				},
+				{
+					"name": "Eliminar un supermercado con un UUID no valido",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/supermarkets/12334",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"supermarkets",
+								"12334"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-So3L6afIKwI/u66qTnUtURsV+x0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:35:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The supermarket with the given id was not found\"\n}"
+				}
+			]
+		}
+	]
+}

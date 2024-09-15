@@ -1,0 +1,855 @@
+{
+	"info": {
+		"_postman_id": "f0d48d75-cc5a-4aad-96f0-a7f0684e60d1",
+		"name": "Ciudad-Supermercado",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37806916"
+	},
+	"item": [
+		{
+			"name": "Asociar un nuevo supermercado a una ciudad",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets/{{supermarketID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{cityID}}",
+						"supermarkets",
+						"{{supermarketID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar un nuevo supermercado a una ciudad",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets/{{supermarketID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{cityID}}",
+								"supermarkets",
+								"{{supermarketID}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "291"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"123-+mfm984aCZgRyWDaN7ORsGbJXsE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:41:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"925c1555-6ff4-43c9-8cc3-221480b73aaa\",\n    \"name\": \"Quito\",\n    \"country\": \"Ecuador\",\n    \"population\": 20000000,\n    \"supermercados\": [\n        {\n            \"id\": \"c371d2b3-98d2-4ed9-a6ac-881ab04a8c6c\",\n            \"name\": \"Supermercado Santiago Updated\",\n            \"longitude\": -70.6483,\n            \"latitude\": -33.4569,\n            \"website\": \"https://supermercadosantiago.com\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Asociar un supermercado que no existe a una ciudad",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets/{{noValidID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{cityID}}",
+						"supermarkets",
+						"{{noValidID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asociar un supermercado que no existe a una ciudad",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets/{{noValidID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{cityID}}",
+								"supermarkets",
+								"{{noValidID}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-NHVspq4npjN2rN8skawM+WwdbOg\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:42:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Supermarket not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener todos los supermercados que pertenecen a una ciudad",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{cityID}}",
+						"supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener todos los supermercados que pertenecen a una ciudad",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{cityID}}",
+								"supermarkets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "329"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"149-jYguhdfJqX/XVLhRCiMAw3wNd8g\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:43:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"c371d2b3-98d2-4ed9-a6ac-881ab04a8c6c\",\n        \"name\": \"Supermercado Santiago Updated\",\n        \"longitude\": -70.6483,\n        \"latitude\": -33.4569,\n        \"website\": \"https://supermercadosantiago.com\"\n    },\n    {\n        \"id\": \"bb701b24-8063-41f8-a28f-17221b63d513\",\n        \"name\": \"Supermercado Bogotá\",\n        \"longitude\": -74.0721,\n        \"latitude\": 4.711,\n        \"website\": \"https://supermercadobogota.com\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener un supermercado asociado a una ciudad",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets/{{supermarketID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{cityID}}",
+						"supermarkets",
+						"{{supermarketID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un supermercado asociado a una ciudad",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets/{{supermarketID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{cityID}}",
+								"supermarkets",
+								"{{supermarketID}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "170"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"aa-6g/jl1mJ+DyRstFqKhYsW9rI8AA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:44:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"c371d2b3-98d2-4ed9-a6ac-881ab04a8c6c\",\n    \"name\": \"Supermercado Santiago Updated\",\n    \"longitude\": -70.6483,\n    \"latitude\": -33.4569,\n    \"website\": \"https://supermercadosantiago.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener un supermercado que no está asociado a una ciudad",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets/{{noValidID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{cityID}}",
+						"supermarkets",
+						"{{noValidID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener un supermercado que no está asociado a una ciudad",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets/{{noValidID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{cityID}}",
+								"supermarkets",
+								"{{noValidID}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "64"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"40-uZuz3eb6Xd9/9o59xCBPTtGPqE8\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:45:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Supermarket not found in the city\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar los supermercados que están asociados a una ciudad",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": \"c51beac0-5c63-45a6-add0-ea0ae0724adf\",\r\n        \"name\": \"Supermercado Argentina\",\r\n        \"longitude\": 58.3816,\r\n        \"latitude\": -34.6037,\r\n        \"website\": \"https://supermercadoabc.com\",\r\n        \"ciudades\": []\r\n    },\r\n    {\r\n        \"id\": \"6a2dcc7b-ba8d-4e17-9de8-a450be97bd57\",\r\n        \"name\": \"Supermercado Lima\",\r\n        \"longitude\": -77.0282,\r\n        \"latitude\": -12.0464,\r\n        \"website\": \"https://supermercadolima.com\",\r\n        \"ciudades\": []\r\n    },\r\n    {\r\n        \"id\": \"bb701b24-8063-41f8-a28f-17221b63d513\",\r\n        \"name\": \"Supermercado Bogotá\",\r\n        \"longitude\": -74.0721,\r\n        \"latitude\": 4.711,\r\n        \"website\": \"https://supermercadobogota.com\",\r\n        \"ciudades\": []\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{cityID}}",
+						"supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar los supermercados que están asociados a una ciudad",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"c51beac0-5c63-45a6-add0-ea0ae0724adf\",\r\n        \"name\": \"Supermercado Argentina\",\r\n        \"longitude\": 58.3816,\r\n        \"latitude\": -34.6037,\r\n        \"website\": \"https://supermercadoabc.com\",\r\n        \"ciudades\": []\r\n    },\r\n    {\r\n        \"id\": \"6a2dcc7b-ba8d-4e17-9de8-a450be97bd57\",\r\n        \"name\": \"Supermercado Lima\",\r\n        \"longitude\": -77.0282,\r\n        \"latitude\": -12.0464,\r\n        \"website\": \"https://supermercadolima.com\",\r\n        \"ciudades\": []\r\n    },\r\n    {\r\n        \"id\": \"bb701b24-8063-41f8-a28f-17221b63d513\",\r\n        \"name\": \"Supermercado Bogotá\",\r\n        \"longitude\": -74.0721,\r\n        \"latitude\": 4.711,\r\n        \"website\": \"https://supermercadobogota.com\",\r\n        \"ciudades\": []\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{cityID}}",
+								"supermarkets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "632"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"278-aTuDqj35iGpDzfZsbFz1+17Edss\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:48:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"925c1555-6ff4-43c9-8cc3-221480b73aaa\",\n    \"name\": \"Quito\",\n    \"country\": \"Ecuador\",\n    \"population\": 20000000,\n    \"supermercados\": [\n        {\n            \"id\": \"c51beac0-5c63-45a6-add0-ea0ae0724adf\",\n            \"name\": \"Supermercado Argentina\",\n            \"longitude\": 58.3816,\n            \"latitude\": -34.6037,\n            \"website\": \"https://supermercadoabc.com\",\n            \"ciudades\": []\n        },\n        {\n            \"id\": \"6a2dcc7b-ba8d-4e17-9de8-a450be97bd57\",\n            \"name\": \"Supermercado Lima\",\n            \"longitude\": -77.0282,\n            \"latitude\": -12.0464,\n            \"website\": \"https://supermercadolima.com\",\n            \"ciudades\": []\n        },\n        {\n            \"id\": \"bb701b24-8063-41f8-a28f-17221b63d513\",\n            \"name\": \"Supermercado Bogotá\",\n            \"longitude\": -74.0721,\n            \"latitude\": 4.711,\n            \"website\": \"https://supermercadobogota.com\",\n            \"ciudades\": []\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar los supermercados asociados a una ciudad, con un supermercado inexistente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": \"27b15c41-ddf2-4157-a454-f6440a4f6196\",\r\n        \"name\": \"Supermercado Argentina\",\r\n        \"longitude\": 58.3816,\r\n        \"latitude\": -34.6037,\r\n        \"website\": \"https://supermercadoabc.com\",\r\n        \"ciudades\": []\r\n    },\r\n    {\r\n        \"id\": \"57ab2837-976c-4b5d-b09a-3482fa2b72e7\",\r\n        \"name\": \"Supermercado Lima\",\r\n        \"longitude\": -77.0282,\r\n        \"latitude\": -12.0464,\r\n        \"website\": \"https://supermercadolima.com\",\r\n        \"ciudades\": []\r\n    }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{cityID}}",
+						"supermarkets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Actualizar los supermercados asociados a una ciudad, con un supermercado inexistente",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"27b15c41-ddf2-4157-a454-f6440a4f6196\",\r\n        \"name\": \"Supermercado Argentina\",\r\n        \"longitude\": 58.3816,\r\n        \"latitude\": -34.6037,\r\n        \"website\": \"https://supermercadoabc.com\",\r\n        \"ciudades\": []\r\n    },\r\n    {\r\n        \"id\": \"57ab2837-976c-4b5d-b09a-3482fa2b72e7\",\r\n        \"name\": \"Supermercado Lima\",\r\n        \"longitude\": -77.0282,\r\n        \"latitude\": -12.0464,\r\n        \"website\": \"https://supermercadolima.com\",\r\n        \"ciudades\": []\r\n    }\r\n]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{cityID}}",
+								"supermarkets"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "165"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a5-Kl/ai8TitNDBjmm8BHtgwaHKGMI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 22:25:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"Supermarket with id 27b15c41-ddf2-4157-a454-f6440a4f6196 not found, Supermarket with id 57ab2837-976c-4b5d-b09a-3482fa2b72e7 not found\"\n}"
+				},
+				{
+					"name": "Actualizar los supermercados asociados a una ciudad, con un supermercado con UUID no valido",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"1234334\",\r\n        \"name\": \"Supermercado Argentina\",\r\n        \"longitude\": 58.3816,\r\n        \"latitude\": -34.6037,\r\n        \"website\": \"https://supermercadoabc.com\",\r\n        \"ciudades\": []\r\n    },\r\n    {\r\n        \"id\": \"21321312321\",\r\n        \"name\": \"Supermercado Lima\",\r\n        \"longitude\": -77.0282,\r\n        \"latitude\": -12.0464,\r\n        \"website\": \"https://supermercadolima.com\",\r\n        \"ciudades\": []\r\n    }\r\n]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{cityID}}",
+								"supermarkets"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "165"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a5-Kl/ai8TitNDBjmm8BHtgwaHKGMI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 22:25:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"Supermarket with id 27b15c41-ddf2-4157-a454-f6440a4f6196 not found, Supermarket with id 57ab2837-976c-4b5d-b09a-3482fa2b72e7 not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar un supermercado asociado a una ciudad",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets/6a2dcc7b-ba8d-4e17-9de8-a450be97bd57",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{cityID}}",
+						"supermarkets",
+						"6a2dcc7b-ba8d-4e17-9de8-a450be97bd57"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un supermercado asociado a una ciudad",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets/6a2dcc7b-ba8d-4e17-9de8-a450be97bd57",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{cityID}}",
+								"supermarkets",
+								"6a2dcc7b-ba8d-4e17-9de8-a450be97bd57"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:49:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Eliminar un supermercado que no estaba previamente asociado a una ciudad",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets/{{noValidID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"cities",
+						"{{cityID}}",
+						"supermarkets",
+						"{{noValidID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar un supermercado que no estaba previamente asociado a una ciudad",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets/{{noValidID}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{cityID}}",
+								"supermarkets",
+								"{{noValidID}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-YpK8Z6In+vdikTn+ri3hp52phKI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:50:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"Supermarket not associated with the city\"\n}"
+				},
+				{
+					"name": "Eliminar un supermercado que no estaba previamente asociado con un UUID invalido a una ciudad",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities/{{cityID}}/supermarkets/12345",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"{{cityID}}",
+								"supermarkets",
+								"12345"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-YpK8Z6In+vdikTn+ri3hp52phKI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 21:50:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 412,\n    \"message\": \"Supermarket not associated with the city\"\n}"
+				}
+			]
+		}
+	]
+}
