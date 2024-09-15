@@ -1,23 +1,23 @@
-import { Column, Entity, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
 import { CiudadEntity } from 'src/ciudad/ciudad.entity/ciudad.entity';
 
 @Entity()
 export class SupermercadoEntity {
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-    @Column()
-    name: string;
+  @Column()
+  name: string;
 
-    @Column()
-    longitude: number;
+  @Column('float')
+  longitude: number;
 
-    @Column()
-    latitude: number;
+  @Column('float')
+  latitude: number;
 
-    @Column()
-    website: string;
+  @Column()
+  website: string;
 
-    @ManyToMany(() => CiudadEntity, ciudad => ciudad.supermercados)
-    ciudades: CiudadEntity[];
+  @ManyToMany(() => CiudadEntity, ciudad => ciudad.supermercados)
+  ciudades: CiudadEntity[];
 }
