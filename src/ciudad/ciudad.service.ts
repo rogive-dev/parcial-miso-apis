@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CiudadEntity } from './ciudad.entity/ciudad.entity';
 import { BusinessLogicException, BusinessError } from '../shared/errors/business-errors';
+import { isUUID } from 'class-validator';
 
 const validCountries = ['Argentina', 'Ecuador', 'Paraguay'];
 
@@ -18,6 +19,7 @@ export class CiudadService {
     }
 
     async findOne(id: string): Promise<CiudadEntity> {
+        this.validateUUID(id);
         const ciudad: CiudadEntity = await this.ciudadRepository.findOne({
             where: { id },
             relations: ["supermercados"],
@@ -34,6 +36,7 @@ export class CiudadService {
     }
 
     async update(id: string, ciudad: CiudadEntity): Promise<CiudadEntity> {
+        this.validateUUID(id);
         const persistedCiudad: CiudadEntity = await this.ciudadRepository.findOne({ where: { id } });
         if (!persistedCiudad) {
             throw new BusinessLogicException("The city with the given id was not found", BusinessError.NOT_FOUND);
@@ -44,6 +47,7 @@ export class CiudadService {
     }
 
     async delete(id: string) {
+        this.validateUUID(id);
         const ciudad: CiudadEntity = await this.ciudadRepository.findOne({ where: { id } });
         if (!ciudad) {
             throw new BusinessLogicException("The city with the given id was not found", BusinessError.NOT_FOUND);
@@ -57,6 +61,13 @@ export class CiudadService {
             throw new BusinessLogicException(`Invalid country. Only ${validCountries.join(', ')} are allowed.`, BusinessError.BAD_REQUEST);
         }
     }
+
+    private validateUUID(id: string): void {
+        if (!isUUID(id)) {
+            throw new BusinessLogicException(`Invalid UUID format: ${id}`, BusinessError.PRECONDITION_FAILED);
+        }
+    }
 }
+
 
 

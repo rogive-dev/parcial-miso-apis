@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { SupermercadoEntity } from './supermercado.entity/supermercado.entity';
 import { BusinessLogicException, BusinessError } from '../shared/errors/business-errors';
+import { isUUID } from 'class-validator';
 
 @Injectable()
 export class SupermercadoService {
@@ -16,6 +17,7 @@ export class SupermercadoService {
     }
 
     async findOne(id: string): Promise<SupermercadoEntity> {
+        this.validateUUID(id);
         const supermercado: SupermercadoEntity = await this.supermercadoRepository.findOne({
             where: { id },
             relations: ['ciudades'],
@@ -32,6 +34,7 @@ export class SupermercadoService {
     }
 
     async update(id: string, supermercado: SupermercadoEntity): Promise<SupermercadoEntity> {
+        this.validateUUID(id);
         const persistedSupermercado: SupermercadoEntity = await this.supermercadoRepository.findOne({ where: { id } });
         if (!persistedSupermercado) {
             throw new BusinessLogicException("The supermarket with the given id was not found", BusinessError.NOT_FOUND);
@@ -42,6 +45,7 @@ export class SupermercadoService {
     }
 
     async delete(id: string) {
+        this.validateUUID(id);
         const supermercado: SupermercadoEntity = await this.supermercadoRepository.findOne({ where: { id } });
         if (!supermercado) {
             throw new BusinessLogicException("The supermarket with the given id was not found", BusinessError.NOT_FOUND);
@@ -53,6 +57,12 @@ export class SupermercadoService {
     private validateName(name: string): void {
         if (name.length <= 10) {
             throw new BusinessLogicException('Supermarket name must be longer than 10 characters.', BusinessError.BAD_REQUEST);
+        }
+    }
+
+    private validateUUID(id: string): void {
+        if (!isUUID(id)) {
+            throw new BusinessLogicException(`Invalid UUID format: ${id}`, BusinessError.PRECONDITION_FAILED);
         }
     }
 }
